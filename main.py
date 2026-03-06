@@ -17,7 +17,6 @@ from classes.enemies import Enemy1, Enemy2
 from classes.bosses import Boss1, Boss2, Boss3
 
 
-pygame.init()
 music_background()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 surface = pygame.Surface((WIDTH, HEIGHT))
@@ -122,9 +121,7 @@ if pygame.joystick.get_count() > 0:
     joystick = pygame.joystick.Joystick(0)
     joystick.init()
 
-if show_menu:
-    import menu
-    menu.main()
+
 
 is_shooting = False
 last_shot_time = 0
