@@ -3,23 +3,28 @@ from classes.constants import WIDTH, HEIGHT
 
 
 def move_player(keys, player):
-    if keys[pygame.K_LEFT]:
-        if keys[pygame.K_UP]:
+    left = keys[pygame.K_LEFT] or keys[pygame.K_a]
+    right = keys[pygame.K_RIGHT] or keys[pygame.K_d]
+    up = keys[pygame.K_UP] or keys[pygame.K_w]
+    down = keys[pygame.K_DOWN] or keys[pygame.K_s]
+
+    if left:
+        if up:
             player.move_up_left()
-        elif keys[pygame.K_DOWN]:
+        elif down:
             player.move_down_left()
         else:
             player.move_left()
-    elif keys[pygame.K_RIGHT]:
-        if keys[pygame.K_UP]:
+    elif right:
+        if up:
             player.move_up_right()
-        elif keys[pygame.K_DOWN]:
+        elif down:
             player.move_down_right()
         else:
             player.move_right()
-    elif keys[pygame.K_UP]:
+    elif up:
         player.move_up()
-    elif keys[pygame.K_DOWN]:
+    elif down:
         player.move_down()
     else:
         player.stop()
